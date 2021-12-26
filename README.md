@@ -9,7 +9,7 @@ How it works
 The tool uses the same [algorithm](https://www.websitecarbon.com/how-does-it-work/) of the original tool but it is faster because it doesn't call external APIs.
 Soon more infos in a Medium post.
 
-[[https://github.com/gpirrotta/carbon-calculator/raw/main/docs/images/py-carbon-calculator.png]]
+<img src="https://github.com/gpirrotta/carbon-calculator/raw/main/docs/images/py-carbon-calculator.png">
 
 
 
