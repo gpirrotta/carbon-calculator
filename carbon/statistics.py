@@ -47,13 +47,11 @@ class PageStatistics(object):
         """
         self._transfered_bytes = self._resources["transfer_size_bytes"]["total"]
         self._adjusted_bytes = self._adjust_data_transfer(self._transfered_bytes)
-        
+
         self._resources["transfer_size_bytes"]["total_weighted"] = self._adjusted_bytes
         self._resources_bytes = self._resources["resources_size_bytes"]["total"]
 
-
         self._energy = self._energy_consumption(self._adjusted_bytes)
-
 
         self._co2_grid_grams = self._get_co2_grid(self._energy)
         self._co2_grid_litres = self._co2_to_litres(self._co2_grid_grams)
@@ -103,23 +101,23 @@ class PageStatistics(object):
     @property
     def url(self) -> str:
         return self._url
-    
+
     @property
     def hosting_green(self) -> bool:
         return self._green
-    
+
     @property
     def co2_grams(self) -> float:
         return self._co2
-    
+
     @property
     def energy_kWh(self) -> float:
         return self._energy
-    
+
     @property
     def water_litres(self) -> float:
         return self._litres
-    
+
     @property
     def resources(self) -> int:
         return self._resources
@@ -131,11 +129,11 @@ class PageStatistics(object):
     @property
     def resources_size_bytes(self) -> int:
         return self._resources_bytes
-    
+
 
 class StatisticsBuilder(object):
     def __init__(
-        self, greenweb: GreenWebService, lighthouse: LighthouseService 
+        self, greenweb: GreenWebService, lighthouse: LighthouseService
     ) -> None:
         self._greenweb = greenweb
         self._lighthouse = lighthouse
@@ -152,5 +150,3 @@ class StatisticsBuilder(object):
 
         except Exception as e:
             raise CarbonCalculatorException(e)
-
-        

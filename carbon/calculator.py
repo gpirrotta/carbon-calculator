@@ -12,11 +12,11 @@ class CarbonCalculator(object):
     """Carbon Calculator - The main module:"""
 
     def __init__(
-        self, greenweb: GreenWebService, lighthouse: LighthouseService 
+        self, greenweb: GreenWebService, lighthouse: LighthouseService
     ) -> None:
         self._builder = StatisticsBuilder(greenweb, lighthouse)
         self._statistics = None
-        
+
     def footprint(self, url: str) -> dict:
         if not validators.url(url):
             raise CarbonCalculatorException("The URL is not valid")
@@ -28,7 +28,6 @@ class CarbonCalculator(object):
         except Exception as e:
             raise CarbonCalculatorException(e)
 
-
     @property
     def date(self):
         return self._statistics.created_at
@@ -36,19 +35,19 @@ class CarbonCalculator(object):
     @property
     def url(self) -> str:
         return self._statistics.url
-    
+
     @property
     def hosting_green(self) -> bool:
         return self._statistics.hosting_green
-    
+
     @property
     def co2_grams(self) -> float:
         return self._statistics.co2_grams
-    
+
     @property
     def energy_kWh(self) -> float:
         return self._statistics.energy_kWh
-    
+
     @property
     def water_litres(self) -> float:
         return self._statistics.water_litres
@@ -56,18 +55,15 @@ class CarbonCalculator(object):
     @property
     def transfer_size_bytes(self) -> float:
         return self._statistics.transfer_size_bytes
-    
+
     @property
     def resources_size_bytes(self) -> float:
         return self._statistics.resources_size_bytes
-    
 
-    
     @property
     def resources(self) -> dict:
         return self._statistics.resources
-  
-    
+
     def to_dict(self) -> dict:
         output = {}
         output["date"] = self._statistics.created_at
@@ -79,7 +75,7 @@ class CarbonCalculator(object):
         output["resources"] = self._statistics.resources
 
         return output
-    
+
     def to_json(self) -> str:
         return json.dumps(self.to_dict(), indent=4, default=json_serial)
 
@@ -104,6 +100,7 @@ class CarbonCalculator(object):
         greenweb = GreenWebService(greenweb_filename)
 
         return cls(lighthouse=lighthouse, greenweb=greenweb)
+
 
 def json_serial(obj):
     if isinstance(obj, (datetime, date)):

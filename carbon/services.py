@@ -165,9 +165,7 @@ class GreenWebService(object):
 
         """
 
-        site_cleaned = (
-            site.replace("http://", "").replace("https://", "")
-        )
+        site_cleaned = site.replace("http://", "").replace("https://", "")
         sql = "SELECT EXISTS(SELECT 1 FROM greendomain WHERE url LIKE ?)"
 
         try:
