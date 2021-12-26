@@ -166,7 +166,7 @@ class GreenWebService(object):
         """
 
         site_cleaned = (
-            site.replace("http://", "").replace("https://", "").replace("www", "")
+            site.replace("http://", "").replace("https://", "")
         )
         sql = "SELECT EXISTS(SELECT 1 FROM greendomain WHERE url LIKE ?)"
 
@@ -192,11 +192,11 @@ class GreenWebService(object):
             return False
 
         with open(filename, "rb") as fd:
-            Header = fd.read(100)
+            header = fd.read(100)
 
         isFileSQLite = False
 
-        if Header[0:16] == b"SQLite format 3\000":
+        if header[0:16] == b"SQLite format 3\000":
             isFileSQLite = True
 
         return isFileSQLite
