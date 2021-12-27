@@ -7,7 +7,7 @@ The Carbon Calculator tool aims to calculate the CO2 emissions of any website. T
 How it works
 ------------
 The tool uses the same [algorithm](https://www.websitecarbon.com/how-does-it-work/) of the original tool but it is faster because it doesn't call external APIs.
-Soon more infos in a Medium post.
+Soon more infos in a [Medium post](https://medium.com/@gpirrotta/di-ecologia-digitale-emissioni-di-carbonio-e-pubbliche-amministrazioni-parte-2-70ff56fcf51c) (italian)
 
 <img src="https://github.com/gpirrotta/carbon-calculator/raw/main/docs/images/py-carbon-calculator.png">
 
