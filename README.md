@@ -88,7 +88,7 @@ from carbon.calculator import CarbonCalculator
 carbon = CarbonCalculator.from_ini_file('config.ini')
 carbon.footprint("https://www.unime.it")
 
-print(carbon.co2)
+print(carbon.co2_grams)
 
 //0.29566587414592505
 
